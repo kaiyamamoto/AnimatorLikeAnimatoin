@@ -456,7 +456,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c4d62435cefe468c706e1bedf2d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: []
 --- !u!4 &1280364712
 Transform:
   m_ObjectHideFlags: 0
@@ -481,7 +480,7 @@ Animator:
   m_GameObject: {fileID: 1280364710}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-  m_Controller: {fileID: 9100000, guid: dfba7a411ab80d24f81a019ea59184fe, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 2
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
@@ -851,7 +850,8 @@ MonoBehaviour:
   - {fileID: 7400000, guid: dffa50cfe77e0434bbfa71245b3dd529, type: 3}
   - {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
   - {fileID: 7400004, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
-  - {fileID: 7400006, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
+  - {fileID: 7400008, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
+  - {fileID: 7400004, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
 --- !u!4 &2024377499
 Transform:
   m_ObjectHideFlags: 0

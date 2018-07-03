@@ -5,13 +5,13 @@ namespace AnimatorLikeAnimation.Style6
 {
     public class Style6ControllerPlus : MonoBehaviour
     {
-        int currentAnimation = 0;
+        int currentAnimation;
         [SerializeField] Style6Animation target;
         [SerializeField] AnimationClip[] animations;
 
-        void Start()
+        void Awake()
         {
-            target.Setup(animations[currentAnimation]);
+            target.Setup(animations);
         }
 
         public void PlayNextAnimation()
@@ -22,7 +22,7 @@ namespace AnimatorLikeAnimation.Style6
                 currentAnimation = 0;
             }
 
-            target.SetAnimation(animations[currentAnimation]);
+            target.CrossFadeInFixedTime(animations[currentAnimation].name);
         }
     }
 }
