@@ -7,22 +7,18 @@ namespace AnimatorLikeAnimation.Style6
     {
         int currentAnimation;
         [SerializeField] Style6Animation target;
-        [SerializeField] AnimationClip[] animations;
+
+        [SerializeField]
+        string state;
 
         void Awake()
         {
-            target.Setup(animations);
+            target.Setup();
         }
 
         public void PlayNextAnimation()
         {
-            currentAnimation++;
-            if (currentAnimation >= animations.Length)
-            {
-                currentAnimation = 0;
-            }
-
-            target.CrossFadeInFixedTime(animations[currentAnimation].name);
+            target.CrossFadeInFixedTime(state);
         }
     }
 }

@@ -456,6 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c4d62435cefe468c706e1bedf2d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scriptableStates: {fileID: 11400000, guid: bcbe81fea11778d4982b3f0b079af59a, type: 2}
 --- !u!4 &1280364712
 Transform:
   m_ObjectHideFlags: 0
@@ -846,12 +847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1280364711}
-  animations:
-  - {fileID: 7400000, guid: dffa50cfe77e0434bbfa71245b3dd529, type: 3}
-  - {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
-  - {fileID: 7400004, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
-  - {fileID: 7400008, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
-  - {fileID: 7400004, guid: d89ea37480b6d75458aa38843e9688dc, type: 3}
+  state: Idle
 --- !u!4 &2024377499
 Transform:
   m_ObjectHideFlags: 0

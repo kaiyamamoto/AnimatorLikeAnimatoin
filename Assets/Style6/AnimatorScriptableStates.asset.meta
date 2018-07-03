@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bcbe81fea11778d4982b3f0b079af59a
+labels:
+- AnimatorScriptableStates
+- Data
+- ScriptableObject
+timeCreated: 1530591074
+licenseType: Free
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

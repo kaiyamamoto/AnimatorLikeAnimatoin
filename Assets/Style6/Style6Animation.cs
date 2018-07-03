@@ -8,8 +8,12 @@ namespace AnimatorLikeAnimation.Style6
     [RequireComponent(typeof(Animator))]
     public class Style6Animation : MonoBehaviour
     {
+        // アニメーターの設定データ
+        [SerializeField]
+        private AnimatorScriptableStates _scriptableStates = null;
+
         // アニメーションの設定内容
-        Dictionary<string, int> _clipNameToHash = new Dictionary<string, int>();
+        private Dictionary<string, int> _clipNameToHash = new Dictionary<string, int>();
 
         // アニメーター
         private Animator _animator = null;
@@ -23,7 +27,7 @@ namespace AnimatorLikeAnimation.Style6
         /// </summary>
         /// <param name="con"></param>
         /// <param name="animationClips"></param>
-        private Dictionary<string, int> CreateAnimatorState(AnimatorOverrideController con, AnimationClip[] animationClips)
+        private Dictionary<string, int> CreateAnimatorState(AnimatorOverrideController con, AnimatorScriptableStates states)
         {
             // cast
             var animCon = con.runtimeAnimatorController as AnimatorController;
@@ -37,13 +41,15 @@ namespace AnimatorLikeAnimation.Style6
 
             // Stateの設定
             Dictionary<string, int> clipNameToHash = new Dictionary<string, int>();
-            for (int i = 0; i < animationClips.Length; i++)
+            var list = states.animState.List;
+            for (int i = 0; i < list.Count; i++)
             {
-                var name = animationClips[i].name;
+                var clip = list[i].Value.clip;
+                var name = list[i].Key;
                 if (clipNameToHash.ContainsKey(name) == false)
                 {
                     var state = stateMachine.AddState(name);
-                    state.motion = animationClips[i];
+                    state.motion = clip;
                     var hash = state.nameHash;
 
                     clipNameToHash.Add(name, hash);
@@ -58,16 +64,16 @@ namespace AnimatorLikeAnimation.Style6
         /// Animatorの設定
         /// </summary>
         /// <param name="animationClips"></param>
-        public void Setup(AnimationClip[] animationClips)
+        public void Setup()
         {
             // TODO : いずれ別の設定方法
-            var runtimeController = Resources.Load<RuntimeAnimatorController>(string.Format("ChangeController"));
+            var runtimeController = _scriptableStates._controller;
             // 上書き用のコントローラー作成
             var overrideAnimatorController = new AnimatorOverrideController(runtimeController);
 
             // ステートの作成
             _clipNameToHash.Clear();
-            _clipNameToHash = CreateAnimatorState(overrideAnimatorController, animationClips);
+            _clipNameToHash = CreateAnimatorState(overrideAnimatorController, _scriptableStates);
 
             // 現在のコントローラーに設定内容を反映
             Animator.runtimeAnimatorController = overrideAnimatorController;
