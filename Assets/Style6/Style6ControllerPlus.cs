@@ -6,7 +6,7 @@ namespace AnimatorLikeAnimation.Style6
     public class Style6ControllerPlus : MonoBehaviour
     {
         int currentAnimation;
-        [SerializeField] Style6Animation target;
+        [SerializeField] DynamicAnimator target;
 
         [SerializeField]
         string state;
